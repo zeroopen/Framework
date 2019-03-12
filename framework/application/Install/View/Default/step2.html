@@ -1,0 +1,45 @@
+	<?php $this->load('header');?>
+	<div class="content">
+		<div class="step-bar">
+			<span class="step">2</span>
+			<span>运行环境检测</span>
+		</div>
+		<div class="content-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="200">检查项目</th>
+						<th>检查结果</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>PHP 版本</td>
+						<td>PHP <?php echo $php; ?></td>
+					</tr>
+				<?php foreach($context as $project => $value) { ?>
+					<tr>
+						<td><?php echo $project; ?></td>
+						<td>
+						<?php if($value): ?>
+							<span class="green">通过</span>
+						<?php else: ?>
+							<span class="red">未通过</span>
+						<?php endif; ?>
+						</td>
+					</tr>
+				<?php } ?>
+				</tbody>
+			</table>
+		</div>
+		<div class="content-bar">
+			<a class="btn" href="javascript:back();">上一步</a>
+			<?php if($next): ?>
+			<a class="btn" href="javascript:next();">下一步</a>
+			<?php else: ?>
+			<a class="btn" href="javascript:;" onclick="alert('当前环境不满足安装条件，无法继续安装！');">检测不通过</a>
+			<?php endif; ?>
+		</div>
+	</div>
+</body>
+</html>

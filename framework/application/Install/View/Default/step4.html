@@ -1,0 +1,108 @@
+	<?php $this->load('header');?>
+	<div class="content">
+		<div class="step-bar">
+			<span class="step">4</span>
+			<span>配置信息</span>
+		</div>
+		<fieldset class="field">
+			<legend>数据库信息</legend>
+			<table>
+				<tbody>
+					<tr>
+						<td width="160">数据库地址：</td>
+						<td><input type="text" id="host" name="host" value="localhost" /></td>
+					</tr>
+					<tr>
+						<td>数据库用户名：</td>
+						<td><input type="text" id="dbuname" name="dbuname" value="root" /></td>
+					</tr>
+					<tr>
+						<td>数据库密码：</td>
+						<td><input type="password" id="dbpass" name="dbpass" value="" /></td>
+					</tr>
+					<tr>
+						<td>数据库名称：</td>
+						<td><input type="text" id="dbname" name="dbname" value="test" /></td>
+					</tr>
+					<tr>
+						<td>表前缀：</td>
+						<td><input type="text" id="dbprefix" name="dbprefix" value="pre_" /></td>
+					</tr>
+					<tr>
+						<td>数据库编码：</td>
+						<td><input type="text" id="dbcharset" name="dbcharset" value="utf8" readonly /></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<br />
+		<fieldset class="field">
+			<legend>admin</legend>
+			<table>
+				<tbody>
+					<tr>
+						<td width="160">用户名：</td>
+						<td><input type="text" id="aduname" name="aduname" value="admin" /></td>
+					</tr>
+					<tr>
+						<td>密码：</td>
+						<td><input type="password" id="adpass" name="adpass" value="" /></td>
+					</tr>
+					<tr>
+						<td>安全码：</td>
+						<td><input type="text" id="safecode" name="safecode" value="" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<div class="content-bar">
+			<a class="btn" href="javascript:back();">上一步</a>
+			<a class="btn" id="install_btn" href="javascript:;" onclick="install();">安装</a>
+		</div>
+	</div>
+	<div class="pop">
+		<div class="pop-bar">提示<a href="javascript:close_popup();">×</a></div>
+		<div class="pop-body"></div>
+	</div>
+	<script>
+	function running(type) {
+		if (type) {
+			$('#install_btn').html('安装中...');
+			$('#install_btn').removeAttr('onclick');
+		} else {
+			$('#install_btn').html('安装');
+			$('#install_btn').attr('onclick', 'install();');
+		}
+	}
+	function popup(text) {
+		$('.pop .pop-body').html(text);
+		$('.pop').show();
+	}
+	function close_popup() {
+		$('.pop').hide();
+	}
+	function install() {
+		var host = $('#host').val();
+		var dbuname = $('#dbuname').val();
+		var dbpass = $('#dbpass').val();
+		var dbprefix = $('#dbprefix').val();
+		var dbcharset = $('#dbcharset').val();
+		var dbname = $('#dbname').val();
+		var aduname = $('#aduname').val();
+		var adpass = $('#adpass').val();
+		var safecode = $('#safecode').val();
+		running(true);
+		$.post("<?php echo Url::get('Install', 'Start');?>", {"host":host,"dbuname":dbuname,"dbpass":dbpass,"dbprefix":dbprefix,"dbcharset":dbcharset,"dbname":dbname,"aduname":aduname,"adpass":adpass,"safecode":safecode}, function(result){
+			if (result.code == 0) {
+				setTimeout(function(){
+					window.location='<?php echo Url::get('install');?>?step=5&key='+result.msg
+				}, 1200);
+			} else {
+				running(false);
+				popup(result.msg);
+			}
+		}, 'json');
+	}
+	</script>
+</body>
+</html>

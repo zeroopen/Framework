@@ -1,0 +1,22 @@
+	<?php $this->load('header');?>
+	<div class="content">
+		<div class="step-bar">
+			<span class="step">5</span>
+			<span>安装结果</span>
+		</div>
+		<div class="content-body center">
+		<?php if($ok): ?>
+			<span class="red">恭喜您已经成功安装程序！</span>
+		<?php else: ?>
+			<span class="red">非法请求</span>
+		<?php endif; ?>
+		</div>
+		<?php if($ok): ?>
+		<div class="content-bar">
+			<a href="/admin/" target="_blank">后台首页</a>
+			<a href="/" target="_blank">网站首页</a>
+		</div>
+		<?php endif; ?>
+	</div>
+</body>
+</html>

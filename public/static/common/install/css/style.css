@@ -1,0 +1,202 @@
+/* 样式初始化 */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	background: #F0F0F0;
+}
+
+body,button,input,select,textarea {
+	font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%
+}
+
+address,cite,dfn,em,var {
+	font-style: normal
+}
+
+code,kbd,pre,samp {
+	font-family: courier new,courier,monospace
+}
+
+small {
+	font-size: 12px
+}
+
+ol,ul {
+	list-style: none
+}
+
+a {
+	text-decoration: none
+}
+
+legend {
+	color: #000
+}
+
+fieldset,img {
+	border: 0
+}
+
+button,input,select,textarea {
+	font-size: 100%
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+/* 页面主体 */
+header {
+	height: 60px;
+	background-color: #3E3E3E;
+}
+
+header .title {
+	padding: 20px 0;
+	font-size: 20px;
+	line-height: 20px;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.step-bar {
+	height: 40px;
+}
+
+.step-bar span {
+	font-size: 14px;
+}
+
+.step-bar .step {
+	background: #45CCE7;
+	color: #FFFFFF;
+	padding: 2px 6px;
+	border-radius: 80px;
+}
+
+.content {
+	padding: 20px;
+	margin: 20px;
+	border-radius: 8px;
+	background-color: #FFFFFF;
+}
+
+.content-body {
+	min-height: 80px;
+	padding: 10px;
+	border: 1px solid #D0D0D0;
+}
+
+.content-bar {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.content-bar a {
+	margin-left: 12px;
+}
+
+.content-bar a:first-child {
+	margin-left: 0;
+}
+
+.btn {
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 4px;
+	background-color: #1F99CD;
+	color: #FFFFFF;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+.center {
+	text-align: center;
+}
+
+.tips {
+	color: #FF3400;
+}
+
+.table {
+	margin: 0 auto;
+}
+
+.table tr {
+	height: 32px;
+	border-bottom: 1px solid #F0F0F0;
+}
+
+.table tr th:first-child {
+	text-align: left;
+}
+
+.field {
+	padding: 10px;
+	margin: 0 auto;
+	border: 1px solid #45CCE7;
+}
+
+.field legend {
+	text-align: center;
+	color: #45CCE7;
+}
+
+.field table {
+	margin: 0 auto;
+}
+
+.field table tr {
+	height: 30px;
+}
+
+.field input {
+	width: 100px;
+	padding: 4px;
+	border: 1px solid #D0D0D0;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.pop {
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	z-index: 999;
+	display: none;
+	margin-left: -150px;
+	width: 300px;
+	height: 120px;
+	background-color: #FFFFFF;
+	border: 1px solid #3E3E3E;
+}
+
+.pop .pop-bar {
+	padding: 6px 10px;
+	background-color: #3E3E3E;
+	color: #FFFFFF;
+}
+
+.pop .pop-bar a {
+	float: right;
+	color: #FFFFFF;
+}
+
+.pop .pop-body {
+	padding: 10px;
+	text-align: center;
+}
